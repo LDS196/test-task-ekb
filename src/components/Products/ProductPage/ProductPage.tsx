@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import { NavLink, useParams } from "react-router-dom"
+import {  useParams } from "react-router-dom"
 import { Button, Card, CardContent, CardMedia, Typography } from "@mui/material"
 import { useActions } from "../../../hooks/useActions"
 import { useSelector } from "react-redux"
@@ -11,6 +11,8 @@ import { SelectSize } from "./Selects/SelectSize"
 import s from "./ProductPage.module.css"
 import defaultImg from "../../../assets/img/defaultItem.jpg"
 import { cartActions } from "../../Cart/catr.slice"
+import { ButtonLinkOnClick } from "../../Button/ButtonLinkOnClick"
+
 
 type UserParams = {
     id: string
@@ -43,8 +45,8 @@ const ProductPage = () => {
                     id: currentProduct.id,
                     name: currentProduct.name,
                     color: { ...color, size: size },
-                    count: 1,
-                },
+                    count: 1
+                }
             })
         }
     }
@@ -58,11 +60,7 @@ const ProductPage = () => {
     }, [])
     return (
         <div>
-            <NavLink to={"/"}>
-                <Button disabled={isLoading} variant="contained" sx={{ mt: 3, mb: 2 }}>
-                    Go To Main Page
-                </Button>
-            </NavLink>
+            <ButtonLinkOnClick variant={"contained"} isLoading={isLoading} link={""} title={"Go To Main Page"} />
             <Card sx={{ maxWidth: 200, gap: "20px 20px" }}>
                 <CardMedia component="img" image={imageLink} alt="product" />
                 <Button

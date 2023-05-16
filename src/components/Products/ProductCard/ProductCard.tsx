@@ -26,7 +26,6 @@ export const ProductCard: FC<PropsType> = ({ product }) => {
                         Name: {product.name}
                     </Typography>
                     <Button onClick={showProductPage} disabled={isLoading}>
-                        {" "}
                         Show Product
                     </Button>
                 </CardContent>

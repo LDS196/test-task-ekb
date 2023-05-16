@@ -23,14 +23,6 @@ const fetchSizes = createAppAsyncThunk<{sizes:SizeType[]}, void>("product/fetchS
         return rejectWithValue(handleServerNetworkError(error))
     }
 })
-const fetchSize = createAppAsyncThunk<any, { id: number }>("product/fetchSize", async (arg, { rejectWithValue }) => {
-    try {
-        const res = await getSize(arg.id)
-        return { size: res }
-    } catch (error) {
-        return rejectWithValue(handleServerNetworkError(error))
-    }
-})
 const slice = createSlice({
     name: "product",
     initialState: {
@@ -60,9 +52,6 @@ const slice = createSlice({
             .addCase(fetchProduct.fulfilled, (state, action) => {
                 state.currentProduct = action.payload
             })
-            .addCase(fetchSize.fulfilled, (state, action) => {
-                state.size = action.payload.size
-            })
             .addCase(fetchSizes.fulfilled, (state, action) => {
                 state.sizes = action.payload.sizes
             })
@@ -70,4 +59,4 @@ const slice = createSlice({
 })
 export const productActions = slice.actions
 export const productReducer = slice.reducer
-export const productThunks = { fetchProduct, fetchSizes, fetchSize }
+export const productThunks = { fetchProduct, fetchSizes}

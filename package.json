@@ -1,62 +1,78 @@
 {
-    "name": "test-task",
-    "homepage": "https://lds196.github.io/test-task",
-    "version": "0.1.0",
-    "private": true,
-    "dependencies": {
-        "@emotion/react": "^11.10.6",
-        "@emotion/styled": "^11.10.6",
-        "@material-ui/styles": "^4.11.5",
-        "@mui/icons-material": "^5.11.16",
-        "@mui/material": "^5.12.2",
-        "@mui/styles": "^5.12.0",
-        "@reduxjs/toolkit": "^1.9.5",
-        "@testing-library/jest-dom": "^5.14.1",
-        "@testing-library/react": "^13.0.0",
-        "@testing-library/user-event": "^13.2.1",
-        "@types/jest": "^27.0.1",
-        "@types/node": "^16.7.13",
-        "@types/react": "^18.0.0",
-        "@types/react-dom": "^18.0.0",
-        "axios": "^1.4.0",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-redux": "^8.0.5",
-        "react-router-dom": "^6.11.1",
-        "react-scripts": "5.0.1",
-        "typescript": "^4.4.2",
-        "web-vitals": "^2.1.0",
-        "redux-persist": "^6.0.0",
-        "gh-pages": "^5.0.0"
-    },
-    "scripts": {
-        "start": "react-scripts start",
-        "build": "react-scripts build",
-        "test": "react-scripts test",
-        "eject": "react-scripts eject",
-        "fix:prettier": "prettier --write \"**/*.*\"",
-        "predeploy": "yarn run build",
-        "deploy": "gh-pages -d build"
-    },
-    "eslintConfig": {
-        "extends": [
-            "react-app",
-            "react-app/jest"
-        ]
-    },
-    "browserslist": {
-        "production": [
-            ">0.2%",
-            "not dead",
-            "not op_mini all"
-        ],
-        "development": [
-            "last 1 chrome version",
-            "last 1 firefox version",
-            "last 1 safari version"
-        ]
-    },
-    "devDependencies": {
-        "prettier": "2.8.8"
-    }
+  "name": "test-task",
+  "homepage": "https://lds196.github.io/test-task",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@emotion/react": "^11.10.6",
+    "@emotion/styled": "^11.10.6",
+    "@material-ui/styles": "^4.11.5",
+    "@mui/icons-material": "^5.11.16",
+    "@mui/material": "^5.12.2",
+    "@mui/styles": "^5.12.0",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@testing-library/jest-dom": "^5.14.1",
+    "@testing-library/react": "^13.0.0",
+    "@testing-library/user-event": "^13.2.1",
+    "@types/jest": "^27.0.1",
+    "@types/node": "^16.7.13",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "axios": "^1.4.0",
+    "gh-pages": "^5.0.0",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.11.1",
+    "react-scripts": "5.0.1",
+    "redux-persist": "^6.0.0",
+    "typescript": "^4.4.2",
+    "web-vitals": "^2.1.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "fix:prettier": "prettier --write \"**/*.*\"",
+    "predeploy": "yarn run build",
+    "deploy": "gh-pages -d build",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "eslintConfig": {
+    "extends": [
+      "react-app",
+      "react-app/jest",
+      "plugin:storybook/recommended"
+    ]
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@storybook/addon-essentials": "7.0.12",
+    "@storybook/addon-interactions": "7.0.12",
+    "@storybook/addon-links": "7.0.12",
+    "@storybook/blocks": "7.0.12",
+    "@storybook/preset-create-react-app": "7.0.12",
+    "@storybook/react": "7.0.12",
+    "@storybook/react-webpack5": "7.0.12",
+    "@storybook/testing-library": "0.0.14-next.2",
+    "babel-plugin-named-exports-order": "0.0.2",
+    "eslint-plugin-storybook": "^0.6.12",
+    "prettier": "2.8.8",
+    "prop-types": "15.8.1",
+    "storybook": "7.0.12",
+    "webpack": "5.82.1"
+  }
 }
