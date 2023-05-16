@@ -4,10 +4,15 @@ import Products from "../components/Products/Products";
 import {Route, Routes} from "react-router-dom";
 import Cart from "../components/Cart/Cart";
 import ProductPage from "../components/Products/ProductPage/ProductPage";
+import { LinearProgress} from "@mui/material";
+import {selectApp} from "./app.select";
+import {useSelector} from "react-redux";
 
 function App() {
+    const{isLoading}=useSelector(selectApp)
     return (
         <div className="App">
+          <div style={{ height: "10px" }}>{isLoading && <LinearProgress />}</div>
             <Routes>
                 <Route path={"/"} element={<Products />} />
                 <Route path={"/cart"} element={<Cart />} />
