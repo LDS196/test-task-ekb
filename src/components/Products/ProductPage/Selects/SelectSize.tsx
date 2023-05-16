@@ -4,10 +4,10 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
-import {useActions} from "../../../hooks/useActions";
-import {productActions,} from "./product.slice";
+import {useActions} from "../../../../hooks/useActions";
+import {productActions,} from "../product.slice";
 import {useSelector} from "react-redux";
-import {selectProduct} from "./product.select";
+import {selectProduct} from "../product.select";
 
 export const SelectSize = () => {
     const { size,color,sizes} = useSelector(selectProduct)

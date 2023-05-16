@@ -5,10 +5,10 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, {SelectChangeEvent} from '@mui/material/Select';
 import {FC} from "react";
-import {useActions} from "../../../hooks/useActions";
-import {productActions} from "./product.slice";
+import {useActions} from "../../../../hooks/useActions";
+import {productActions} from "../product.slice";
 import {useSelector} from "react-redux";
-import {selectColors, selectProduct} from "./product.select";
+import {selectColors, selectProduct} from "../product.select";
 
 type PropsType = {}
 export const SelectColor: FC<PropsType> = () => {

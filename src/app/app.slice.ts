@@ -2,14 +2,13 @@ import {createSlice, PayloadAction} from "@reduxjs/toolkit"
 import {ProductType} from "../services/types";
 import {createAppAsyncThunk} from "../utils/create-app-async-thunk";
 import { getProducts} from "../services/api";
+import {handleServerNetworkError} from "../utils/handle-server-network-error";
 
-const fetchProducts = createAppAsyncThunk<any, void>("app/fetchProducts", async (_, ThunkApi) => {
-    const {rejectWithValue} = ThunkApi
+const fetchProducts = createAppAsyncThunk<ProductType[], void>("app/fetchProducts", async (_, {rejectWithValue}) => {
     try {
-        const res = await getProducts()
-        return res
+        return  await getProducts() as ProductType[]
     } catch (error) {
-        return rejectWithValue(null)
+        return rejectWithValue(handleServerNetworkError(error))
     }
 })
 
@@ -46,7 +45,7 @@ const slice = createSlice({
                 (state, action) => {
                     const {payload} = action
                     if (payload?.showGlobalError) {
-                        state.error = payload.data
+                        state.error = payload.data.message
                     }
                     state.isLoading = false
                 }

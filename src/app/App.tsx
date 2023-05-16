@@ -8,13 +8,14 @@ import { LinearProgress, } from "@mui/material";
 import {selectApp} from "./app.select";
 import {useSelector} from "react-redux";
 import ModalCart from "../components/Cart/ModulCart/ModalCart";
+import {ErrorSnackbar} from "../components/ErrorSnackbar/ErrorSnackbar";
 
 function App() {
-
     const {isLoading} = useSelector(selectApp)
 
     return (
         <div className="App">
+            <ErrorSnackbar/>
             <div style={{height: "10px"}}>{isLoading && <LinearProgress/>}</div>
             <ModalCart/>
 

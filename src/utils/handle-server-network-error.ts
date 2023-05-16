@@ -6,6 +6,7 @@ import axios, {AxiosError} from "axios";
  */
 
 export const handleServerNetworkError = (error: unknown, isShowError: boolean = true) => {
+
     const err = error as Error | AxiosError<{ error: string }>
     if (axios.isAxiosError(err)) {
         return {
@@ -13,6 +14,6 @@ export const handleServerNetworkError = (error: unknown, isShowError: boolean = 
             showGlobalError: isShowError,
         }
     } else {
-        return { data: "Some error occurred", showGlobalError: isShowError }
+        return { data: error, showGlobalError: isShowError }
     }
 }

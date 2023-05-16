@@ -6,8 +6,8 @@ import {useSelector} from "react-redux";
 import {selectApp} from "../../../app/app.select";
 import {productThunks} from "./product.slice";
 import {selectProduct} from "./product.select";
-import {SelectColor} from "./SelectColor";
-import {SelectSize} from "./SelectSize";
+import {SelectColor} from "./Selects/SelectColor";
+import {SelectSize} from "./Selects/SelectSize";
 import s from './ProductPage.module.css'
 import defaultImg from '../../../assets/img/defaultItem.jpg'
 import {cartActions} from "../../Cart/catr.slice";
@@ -27,7 +27,6 @@ const ProductPage = () => {
 
     const imageLink = color ? color.images[numberImg] : currentProduct ? currentProduct.colors[0].images[0] : defaultImg
 
-
     const changeImage = () => {
         if (color?.images.length) {
             if (numberImg < (color.images.length - 1)) {
@@ -36,7 +35,6 @@ const ProductPage = () => {
                 setNumberImg(0)
             }
         }
-
     }
     const addItemToCart = () => {
         if(currentProduct && color && size){
