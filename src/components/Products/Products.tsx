@@ -15,7 +15,7 @@ const Products = () => {
         fetchProducts({})
     }, [])
     return (
-        <Container maxWidth="sm">
+        <Container maxWidth="lg">
             <Grid container spacing={3}>
                 {products.map(p=> <ProductCard key={p.id} product={p}/>)}
             </Grid>

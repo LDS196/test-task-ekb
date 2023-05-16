@@ -9,7 +9,8 @@ const fetchProduct = createAppAsyncThunk<any, { id: number }>("product/fetchProd
     const {rejectWithValue, dispatch} = ThunkApi
     dispatch(productActions.clear())
     try {
-        const res = await getProduct(arg.id)
+        const res = await getProduct(arg.id) as ProductType
+        dispatch(productActions.setColor({color: res.colors[0]}))
         return res
     } catch (error) {
         return rejectWithValue(handleServerNetworkError(error))
@@ -46,7 +47,7 @@ const slice = createSlice({
             state.color = action.payload.color
         },
         clear: (state) => {
-            state.currentProduct=null
+            state.currentProduct = null
             state.color = null
             state.size = null
         },

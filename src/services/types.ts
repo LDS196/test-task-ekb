@@ -16,3 +16,17 @@ export type ProductType={
     name: string
     colors: ColorType[]
 }
+type ColorTypeForCart={
+    id: number
+    name: string
+    images: string[],
+    price: string,
+    description: string,
+    size: SizeType,
+}
+export type ProductTypeForCart = {
+    count: number
+    id: number
+    name: string
+    color: ColorTypeForCart
+}

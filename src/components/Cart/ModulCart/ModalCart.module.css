@@ -1,0 +1,8 @@
+.modal {
+    z-index: 100;
+    position: absolute;
+    padding: 10px;
+    max-width: 200px;
+    right: 0;
+    top: 10px;
+}
