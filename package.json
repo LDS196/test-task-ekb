@@ -1,6 +1,5 @@
 {
-  "name": "test-task",
-  "homepage": "https://lds196.github.io/test-task-ekb/",
+  "name": "test-task-ekb",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
