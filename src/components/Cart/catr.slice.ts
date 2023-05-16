@@ -1,11 +1,10 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { ProductTypeForCart } from "../../services/types"
-import { store } from "../../app/store"
 
 const initialState = {
     items: [] as ProductTypeForCart[],
     totalPrice: 0,
-    totalCount: 0
+    totalCount: 0,
 }
 export type initialStateType = typeof initialState
 const slice = createSlice({
@@ -71,8 +70,8 @@ const slice = createSlice({
             state.items = []
             state.totalPrice = 0
             state.totalCount = 0
-        }
-    }
+        },
+    },
 })
 export const cartActions = slice.actions
 export const cartReducer = slice.reducer

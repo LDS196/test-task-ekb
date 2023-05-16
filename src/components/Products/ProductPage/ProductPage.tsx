@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react"
-import {  useParams } from "react-router-dom"
+import { useParams } from "react-router-dom"
 import { Button, Card, CardContent, CardMedia, Typography } from "@mui/material"
 import { useActions } from "../../../hooks/useActions"
 import { useSelector } from "react-redux"
@@ -12,7 +12,6 @@ import s from "./ProductPage.module.css"
 import defaultImg from "../../../assets/img/defaultItem.jpg"
 import { cartActions } from "../../Cart/catr.slice"
 import { ButtonLinkOnClick } from "../../Button/ButtonLinkOnClick"
-
 
 type UserParams = {
     id: string
@@ -45,8 +44,8 @@ const ProductPage = () => {
                     id: currentProduct.id,
                     name: currentProduct.name,
                     color: { ...color, size: size },
-                    count: 1
-                }
+                    count: 1,
+                },
             })
         }
     }

@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit"
 import { createAppAsyncThunk } from "../../../utils/create-app-async-thunk"
-import { getProduct, getSize, getSizes } from "../../../services/api"
+import { getProduct, getSizes } from "../../../services/api"
 import { handleServerNetworkError } from "../../../utils/handle-server-network-error"
 import { ColorType, ProductType, SizeType } from "../../../services/types"
 
@@ -15,14 +15,17 @@ const fetchProduct = createAppAsyncThunk<ProductType, { id: number }>("product/f
         return rejectWithValue(handleServerNetworkError(error))
     }
 })
-const fetchSizes = createAppAsyncThunk<{sizes:SizeType[]}, void>("product/fetchSizes", async (arg, { rejectWithValue }) => {
-    try {
-        const res = await getSizes() as SizeType[]
-        return { sizes: res }
-    } catch (error) {
-        return rejectWithValue(handleServerNetworkError(error))
+const fetchSizes = createAppAsyncThunk<{ sizes: SizeType[] }, void>(
+    "product/fetchSizes",
+    async (arg, { rejectWithValue }) => {
+        try {
+            const res = (await getSizes()) as SizeType[]
+            return { sizes: res }
+        } catch (error) {
+            return rejectWithValue(handleServerNetworkError(error))
+        }
     }
-})
+)
 const slice = createSlice({
     name: "product",
     initialState: {
@@ -59,4 +62,4 @@ const slice = createSlice({
 })
 export const productActions = slice.actions
 export const productReducer = slice.reducer
-export const productThunks = { fetchProduct, fetchSizes}
+export const productThunks = { fetchProduct, fetchSizes }
