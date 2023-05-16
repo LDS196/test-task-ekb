@@ -1,46 +1,31 @@
-# Getting Started with Create React App
+Задача:
+Используя ReactJS сделать три страницы каталога товаров:
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Список товаров;
+Детальная страница товара;
+Корзина;
+Реализация функционала страниц произвольная (сторонние библиотеки, либо просто на компонентах).
 
-## Available Scripts
+Данные о товарах нужно получать из fake-api, которое находится тут - src/services/api.js.
 
-In the project directory, you can run:
+На странице со списком должны быть товары с картинками. По клику на товар - переход на карточку товара.
 
-### `yarn start`
+На детальной странице нужно:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Вывести информацию по товару;
+Реализовать выбор цвета;
+Просмотр изображений через переключение без использования сторонних библиотек;
+Выбор размера из списка доступных, не доступные размеры должны быть заблокированы;
+Реализовать корзину в упрощённом виде:
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+Добавление товара с цветом и размером корзину. Добавлять нужно в единичном виде: связки товар-цвет-размер. Не нужно делать количество добавленных экземпляров. Но товары должны быть уникальные;
+Вывод количества добавленных товаров в кнопку перехода на страницу корзины;
+Отдельную страницу корзины со списком добавленных товаров. Не обязательно стилизовать эту страницу, можно сделать аналогично странице списка товаров, с дополнительной информацией о добавленном товаре(смотри example);
+Удаление товара на странице корзины;
+Кнопка перехода в корзину должна быть на каждой странице. Для хранения добавленных товаров можно использовать что угодно.
 
-### `yarn test`
+Вёрстка и стилизация не важна, можно минимально расположить элементы для удобного восприятия. При оценке выполнения задачи внимание будет больше обращаться на реализацию, на подход, на решения принимаемые для выполнения задачи.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Так же можно опустить вывод каких либо сообщений пользователю. Главное чтобы не возникало ошибок в процессе.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+В папке example пример того, что корзина может выглядеть как угодно, но не обязательно делать так же.

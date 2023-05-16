@@ -1,12 +1,12 @@
-import {createSlice, PayloadAction} from "@reduxjs/toolkit"
-import {ProductType} from "../services/types";
-import {createAppAsyncThunk} from "../utils/create-app-async-thunk";
-import { getProducts} from "../services/api";
-import {handleServerNetworkError} from "../utils/handle-server-network-error";
+import { createSlice, PayloadAction } from "@reduxjs/toolkit"
+import { ProductType } from "../services/types"
+import { createAppAsyncThunk } from "../utils/create-app-async-thunk"
+import { getProducts } from "../services/api"
+import { handleServerNetworkError } from "../utils/handle-server-network-error"
 
-const fetchProducts = createAppAsyncThunk<ProductType[], void>("app/fetchProducts", async (_, {rejectWithValue}) => {
+const fetchProducts = createAppAsyncThunk<ProductType[], void>("app/fetchProducts", async (_, { rejectWithValue }) => {
     try {
-        return  await getProducts() as ProductType[]
+        return (await getProducts()) as ProductType[]
     } catch (error) {
         return rejectWithValue(handleServerNetworkError(error))
     }
@@ -17,13 +17,12 @@ const slice = createSlice({
     initialState: {
         products: [] as ProductType[],
         isLoading: false,
-        error: null as null | string
+        error: null as null | string,
     },
     reducers: {
         setAppError: (state, action: PayloadAction<{ error: string | null }>) => {
             state.error = action.payload.error
         },
-
     },
     extraReducers: (builder) => {
         builder
@@ -43,7 +42,7 @@ const slice = createSlice({
                     return action.type.endsWith("/rejected")
                 },
                 (state, action) => {
-                    const {payload} = action
+                    const { payload } = action
                     if (payload?.showGlobalError) {
                         state.error = payload.data.message
                     }
@@ -62,4 +61,4 @@ const slice = createSlice({
 })
 export const appActions = slice.actions
 export const appReducer = slice.reducer
-export const appThunks = {fetchProducts,}
+export const appThunks = { fetchProducts }
