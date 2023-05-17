@@ -8,6 +8,7 @@ import { useActions } from "../../hooks/useActions"
 import { cartActions } from "./catr.slice"
 import { selectIsLoading } from "../../app/app.select"
 import { Link } from "react-router-dom"
+import { v1 } from "uuid"
 
 const Cart = () => {
     const isLoading = useSelector(selectIsLoading)
@@ -34,7 +35,7 @@ const Cart = () => {
 
                     <Grid container spacing={3}>
                         {items.map((i) => (
-                            <ProductCardForCart key={i.id} product={i} />
+                            <ProductCardForCart key={v1()} product={i} />
                         ))}
                     </Grid>
                 </div>
