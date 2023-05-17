@@ -1,11 +1,11 @@
 import React from "react"
 import emptyCartImg from "../../assets/img/empty-cart.png"
 import { useSelector } from "react-redux"
-import { selectApp } from "../../app/app.select"
+import { selectIsLoading } from "../../app/app.select"
 import { ButtonLinkOnClick } from "../Button/ButtonLinkOnClick"
 
 export const CartEmpty = () => {
-    const { isLoading } = useSelector(selectApp)
+    const isLoading = useSelector(selectIsLoading)
     return (
         <div style={{ textAlign: "center" }}>
             <h2>CART IS EMPTY!</h2>

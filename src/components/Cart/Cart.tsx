@@ -2,17 +2,17 @@ import React from "react"
 import { Button, Container, Grid } from "@mui/material"
 import { ProductCardForCart } from "./ProductCardForCart"
 import { useSelector } from "react-redux"
-import { selectCart } from "./cart.select"
+import { selectItems } from "./cart.select"
 import { CartEmpty } from "./CartEmpty"
 import { useActions } from "../../hooks/useActions"
 import { cartActions } from "./catr.slice"
-import { selectApp } from "../../app/app.select"
+import { selectIsLoading } from "../../app/app.select"
 import { Link } from "react-router-dom"
 
 const Cart = () => {
-    const { isLoading } = useSelector(selectApp)
+    const isLoading = useSelector(selectIsLoading)
     const { clearItems } = useActions(cartActions)
-    const { items } = useSelector(selectCart)
+    const items = useSelector(selectItems)
     const clearCart = () => {
         clearItems()
     }

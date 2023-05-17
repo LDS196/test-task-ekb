@@ -3,9 +3,9 @@ import { useParams } from "react-router-dom"
 import { Button, Card, CardContent, CardMedia, Typography } from "@mui/material"
 import { useActions } from "../../../hooks/useActions"
 import { useSelector } from "react-redux"
-import { selectApp } from "../../../app/app.select"
+import { selectIsLoading } from "../../../app/app.select"
 import { productThunks } from "./product.slice"
-import { selectProduct } from "./product.select"
+import { selectColor, selectCurrentProduct, selectSize } from "./product.select"
 import { SelectColor } from "./Selects/SelectColor"
 import { SelectSize } from "./Selects/SelectSize"
 import s from "./ProductPage.module.css"
@@ -17,10 +17,12 @@ type UserParams = {
     id: string
 }
 const ProductPage = () => {
-    const { isLoading } = useSelector(selectApp)
+    const isLoading = useSelector(selectIsLoading)
     const { fetchProduct } = useActions(productThunks)
     const { addItem } = useActions(cartActions)
-    const { currentProduct, color, size } = useSelector(selectProduct)
+    const currentProduct = useSelector(selectCurrentProduct)
+    const color = useSelector(selectColor)
+    const size = useSelector(selectSize)
     const { id } = useParams<UserParams>() as UserParams
     const { fetchSizes } = useActions(productThunks)
 

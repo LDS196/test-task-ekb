@@ -8,11 +8,11 @@ import { FC } from "react"
 import { useActions } from "../../../../hooks/useActions"
 import { productActions } from "../product.slice"
 import { useSelector } from "react-redux"
-import { selectColors, selectProduct } from "../product.select"
+import { selectColor, selectColors } from "../product.select"
 
 type PropsType = {}
 export const SelectColor: FC<PropsType> = () => {
-    const { color } = useSelector(selectProduct)
+    const color = useSelector(selectColor)
     const colors = useSelector(selectColors)
     const { setColor, clearSize } = useActions(productActions)
 

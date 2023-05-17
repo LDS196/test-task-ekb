@@ -1,19 +1,19 @@
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Card, CardContent, CardMedia, Grid, IconButton, Typography } from "@mui/material"
 import DeleteIcon from "@mui/icons-material/Delete"
 import { ProductTypeForCart } from "../../services/types"
 import { useActions } from "../../hooks/useActions"
 import { cartActions } from "./catr.slice"
 import { useSelector } from "react-redux"
-import { selectApp } from "../../app/app.select"
+import { selectIsLoading } from "../../app/app.select"
 import AddCircleIcon from "@mui/icons-material/AddCircle"
 import RemoveCircleOutlineIcon from "@mui/icons-material/RemoveCircleOutline"
 
 type PropsType = {
     product: ProductTypeForCart
 }
-export const ProductCardForCart: FC<PropsType> = ({ product }) => {
-    const { isLoading } = useSelector(selectApp)
+export const ProductCardForCart: FC<PropsType> = memo(({ product }) => {
+    const isLoading = useSelector(selectIsLoading)
     const { removeItem, addItem, minusItem } = useActions(cartActions)
     const deleteProduct = () => {
         removeItem({ product })
@@ -62,4 +62,4 @@ export const ProductCardForCart: FC<PropsType> = ({ product }) => {
             </Card>
         </Grid>
     )
-}
+})

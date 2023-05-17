@@ -2,10 +2,11 @@ import React from "react"
 import { Paper, Typography } from "@mui/material"
 import { NavLink } from "react-router-dom"
 import { useSelector } from "react-redux"
-import { selectCart } from "../cart.select"
+import { selectTotalCount, selectTotalPrice } from "../cart.select"
 import style from "./ModalCart.module.css"
 const ModalCart = () => {
-    const { totalPrice, totalCount } = useSelector(selectCart)
+    const totalPrice = useSelector(selectTotalPrice)
+    const totalCount = useSelector(selectTotalCount)
     return (
         <Paper elevation={2} className={style.modal}>
             <NavLink to={"/cart"}>

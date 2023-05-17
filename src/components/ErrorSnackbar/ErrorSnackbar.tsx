@@ -2,7 +2,7 @@ import React from "react"
 import { useSelector } from "react-redux"
 import { AlertProps, Snackbar } from "@mui/material"
 import MuiAlert from "@mui/material/Alert"
-import { selectApp } from "../../app/app.select"
+import { selectAppError } from "../../app/app.select"
 import { useActions } from "../../hooks/useActions"
 import { appActions } from "../../app/app.slice"
 
@@ -11,7 +11,7 @@ const Alert = React.forwardRef<HTMLDivElement, AlertProps>(function Alert(props,
 })
 
 export function ErrorSnackbar() {
-    const { error } = useSelector(selectApp)
+    const error = useSelector(selectAppError)
 
     const { setAppError } = useActions(appActions)
 

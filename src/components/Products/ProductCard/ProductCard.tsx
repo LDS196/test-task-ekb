@@ -1,15 +1,15 @@
-import React, { FC } from "react"
+import React, { FC, memo } from "react"
 import { Button, Card, CardContent, CardMedia, Grid, Typography } from "@mui/material"
 import { ProductType } from "../../../services/types"
 import { useSelector } from "react-redux"
-import { selectApp } from "../../../app/app.select"
+import { selectIsLoading } from "../../../app/app.select"
 import { useNavigate } from "react-router-dom"
 
 type PropsType = {
     product: ProductType
 }
-export const ProductCard: FC<PropsType> = ({ product }) => {
-    const { isLoading } = useSelector(selectApp)
+export const ProductCard: FC<PropsType> = memo(({ product }) => {
+    const isLoading = useSelector(selectIsLoading)
     const navigate = useNavigate()
     const showProductPage = () => {
         navigate(`/productPage/${product.id}`)
@@ -32,4 +32,4 @@ export const ProductCard: FC<PropsType> = ({ product }) => {
             </Card>
         </Grid>
     )
-}
+})

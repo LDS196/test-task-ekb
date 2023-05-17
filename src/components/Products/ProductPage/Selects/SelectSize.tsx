@@ -7,10 +7,12 @@ import Select, { SelectChangeEvent } from "@mui/material/Select"
 import { useActions } from "../../../../hooks/useActions"
 import { productActions } from "../product.slice"
 import { useSelector } from "react-redux"
-import { selectProduct } from "../product.select"
+import { selectColor, selectSize, selectSizes } from "../product.select"
 
 export const SelectSize = () => {
-    const { size, color, sizes } = useSelector(selectProduct)
+    const size = useSelector(selectSize)
+    const color = useSelector(selectColor)
+    const sizes = useSelector(selectSizes)
 
     const { setSize } = useActions(productActions)
 

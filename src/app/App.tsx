@@ -5,13 +5,13 @@ import { Route, Routes } from "react-router-dom"
 import Cart from "../components/Cart/Cart"
 import ProductPage from "../components/Products/ProductPage/ProductPage"
 import { LinearProgress } from "@mui/material"
-import { selectApp } from "./app.select"
+import { selectIsLoading } from "./app.select"
 import { useSelector } from "react-redux"
 import ModalCart from "../components/Cart/ModulCart/ModalCart"
 import { ErrorSnackbar } from "../components/ErrorSnackbar/ErrorSnackbar"
 
 function App() {
-    const { isLoading } = useSelector(selectApp)
+    const isLoading = useSelector(selectIsLoading)
 
     return (
         <div className="App">
