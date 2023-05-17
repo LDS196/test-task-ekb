@@ -52,11 +52,9 @@ const ProductPage = () => {
 
     useEffect(() => {
         fetchProduct({ id: +id })
-    }, [])
-
-    useEffect(() => {
         fetchSizes({})
     }, [])
+
     return (
         <div>
             <ButtonLinkOnClick variant={"contained"} isLoading={isLoading} link={""} title={"Go To Main Page"} />
